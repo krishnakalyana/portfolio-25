@@ -1,5 +1,6 @@
 import portfolio from "@/data/portfolio";
 import Header from "@/components/Header";
+import GlitchText from "@/components/GlitchText";
 import Section from "@/components/Section";
 import ExperienceItem from "@/components/ExperienceItem";
 import ProjectCard from "@/components/ProjectCard";
@@ -11,6 +12,9 @@ export default function Home() {
     <div className="font-sans min-h-screen p-6 sm:p-10 relative overflow-hidden">
       <div className="fx-grid" />
       <div className="relative mx-auto max-w-3xl space-y-10">
+        <div className="flex items-baseline gap-2">
+          <GlitchText text={name} className="text-2xl sm:text-3xl font-semibold tracking-tight" />
+        </div>
         <Header
           name={name}
           role={role}
