@@ -4,10 +4,10 @@
 export const portfolio = {
   // Basic info
   name: "Krishna Kalyana",
-  role: "Software Engineer",
+  role: "Senior Software Engineer",
   location: "",
   summary:
-    "Full‑stack developer focused on building clean, fast experiences with Next.js, React, and Node.js.",
+    "Full‑stack engineer focused on building clean, fast experiences with Next.js, React, and Node.js.",
 
   // Public assets
   avatarUrl: "", // e.g. "/avatar.jpg" placed in public/
@@ -15,11 +15,11 @@ export const portfolio = {
 
   // Contacts and social links (show only those you fill in)
   contacts: {
-    email: "",
-    phone: "",
+    email: "krishnakalyanax@gmail.com",
+    phone: "9024477043",
     website: "",
-    github: "",
-    linkedin: "",
+    github: "https://github.com/krishnakalyana",
+    linkedin: "https://linkedin.com/in/krishnakalyanax/",
     twitter: "",
   },
 
