@@ -4,7 +4,6 @@ import Section from "@/components/Section";
 import ExperienceItem from "@/components/ExperienceItem";
 import ProjectCard from "@/components/ProjectCard";
 import Footer from "@/components/Footer";
-import { motion } from "framer-motion";
 
 export default function Home() {
   const { name, role, summary, avatarUrl, resumeUrl, contacts, skills, experience, projects, education } = portfolio;
@@ -38,33 +37,21 @@ export default function Home() {
 
         {experience?.length ? (
           <Section title="Experience">
-            <motion.div
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, margin: "-10%" }}
-              variants={{ hidden: {}, show: { transition: { staggerChildren: 0.06 } } }}
-              className="space-y-5"
-            >
+            <div className="space-y-5">
               {experience.map((item, idx) => (
                 <ExperienceItem key={idx} {...item} />
               ))}
-            </motion.div>
+            </div>
           </Section>
         ) : null}
 
         {projects?.length ? (
           <Section title="Projects">
-            <motion.div
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, margin: "-10%" }}
-              variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-4"
-            >
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {projects.map((p, idx) => (
                 <ProjectCard key={idx} {...p} />
               ))}
-            </motion.div>
+            </div>
           </Section>
         ) : null}
 

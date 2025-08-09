@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import GlitchText from "@/components/GlitchText";
+import AccentToggle from "@/components/AccentToggle";
 
 export default function Header({ name, role, summary, avatarUrl, resumeUrl, contacts = {} }) {
   const hasContacts = Object.values(contacts).some(Boolean);
@@ -46,6 +47,7 @@ export default function Header({ name, role, summary, avatarUrl, resumeUrl, cont
             View Resume
           </a>
         ) : null}
+        <AccentToggle />
       </motion.div>
 
       {summary ? (
