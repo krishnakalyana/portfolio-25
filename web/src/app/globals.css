@@ -70,6 +70,10 @@ body {
     0 12px 36px -20px rgba(255, 0, 170, 0.3);
 }
 
+.neon-chip {
+  box-shadow: 0 0 8px rgba(0, 221, 255, 0.25), 0 0 14px rgba(255, 0, 170, 0.18);
+}
+
 /* Glitch text effect */
 .glitch {
   position: relative;
@@ -95,6 +99,26 @@ body {
   color: rgba(255, 0, 170, 0.85);
   clip-path: polygon(0 62%, 100% 62%, 100% 100%, 0 100%);
   animation: glitchShift 3s infinite linear alternate;
+}
+
+/* Neon role accent */
+.neon-role {
+  text-shadow: 0 0 8px rgba(0, 221, 255, 0.35), 0 0 18px rgba(255, 0, 170, 0.25);
+}
+
+/* Section underline accent */
+.section-underline {
+  position: relative;
+}
+.section-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  height: 2px;
+  width: 120px;
+  background: linear-gradient(90deg, rgba(0,221,255,0.9), rgba(255,0,170,0.9));
+  filter: drop-shadow(0 0 6px rgba(0,221,255,0.6));
 }
 
 @keyframes glitchShift {

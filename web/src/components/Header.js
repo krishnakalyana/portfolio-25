@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import GlitchText from "@/components/GlitchText";
 
 export default function Header({ name, role, summary, avatarUrl, resumeUrl, contacts = {} }) {
   const hasContacts = Object.values(contacts).some(Boolean);
@@ -22,8 +23,10 @@ export default function Header({ name, role, summary, avatarUrl, resumeUrl, cont
           />
         ) : null}
         <div>
-          <h1 className="text-2xl font-semibold tracking-tight">{name}</h1>
-          {role ? <p className="text-sm text-foreground/70 mt-0.5">{role}</p> : null}
+          <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight">
+            <GlitchText text={name} />
+          </h1>
+          {role ? <p className="text-sm text-foreground/70 mt-1 neon-role">{role}</p> : null}
         </div>
       </motion.div>
 

@@ -10,7 +10,7 @@ export default function Section({ title, children, className = "" }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-20%" }}
           transition={{ duration: 0.45 }}
-          className="text-lg font-semibold tracking-tight text-foreground/90 mb-4"
+          className="text-lg font-semibold tracking-tight text-foreground/90 mb-6 section-underline"
         >
           {title}
         </motion.h2>

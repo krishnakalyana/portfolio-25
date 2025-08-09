@@ -1,10 +1,10 @@
 import portfolio from "@/data/portfolio";
 import Header from "@/components/Header";
-import GlitchText from "@/components/GlitchText";
 import Section from "@/components/Section";
 import ExperienceItem from "@/components/ExperienceItem";
 import ProjectCard from "@/components/ProjectCard";
 import Footer from "@/components/Footer";
+import { motion } from "framer-motion";
 
 export default function Home() {
   const { name, role, summary, avatarUrl, resumeUrl, contacts, skills, experience, projects, education } = portfolio;
@@ -12,9 +12,6 @@ export default function Home() {
     <div className="font-sans min-h-screen p-6 sm:p-10 relative overflow-hidden">
       <div className="fx-grid" />
       <div className="relative mx-auto max-w-3xl space-y-10">
-        <div className="flex items-baseline gap-2">
-          <GlitchText text={name} className="text-2xl sm:text-3xl font-semibold tracking-tight" />
-        </div>
         <Header
           name={name}
           role={role}
@@ -28,7 +25,10 @@ export default function Home() {
           <Section title="Skills">
             <div className="flex flex-wrap gap-2">
               {skills.map((s, i) => (
-                <span key={i} className="text-xs px-2 py-0.5 rounded-full bg-foreground/5 border border-foreground/10">
+                <span
+                  key={i}
+                  className="text-xs px-2 py-0.5 rounded-full bg-foreground/5 border border-foreground/10 neon-chip"
+                >
                   {s}
                 </span>
               ))}
@@ -38,21 +38,33 @@ export default function Home() {
 
         {experience?.length ? (
           <Section title="Experience">
-            <div className="space-y-5">
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-10%" }}
+              variants={{ hidden: {}, show: { transition: { staggerChildren: 0.06 } } }}
+              className="space-y-5"
+            >
               {experience.map((item, idx) => (
-                <ExperienceItem key={idx} {...item} />)
-              )}
-            </div>
+                <ExperienceItem key={idx} {...item} />
+              ))}
+            </motion.div>
           </Section>
         ) : null}
 
         {projects?.length ? (
           <Section title="Projects">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-10%" }}
+              variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+            >
               {projects.map((p, idx) => (
                 <ProjectCard key={idx} {...p} />
               ))}
-            </div>
+            </motion.div>
           </Section>
         ) : null}
 
