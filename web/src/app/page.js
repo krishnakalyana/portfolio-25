@@ -8,8 +8,9 @@ import Footer from "@/components/Footer";
 export default function Home() {
   const { name, role, summary, avatarUrl, resumeUrl, contacts, skills, experience, projects, education } = portfolio;
   return (
-    <div className="font-sans min-h-screen p-6 sm:p-10">
-      <div className="mx-auto max-w-3xl space-y-10">
+    <div className="font-sans min-h-screen p-6 sm:p-10 relative overflow-hidden">
+      <div className="fx-grid" />
+      <div className="relative mx-auto max-w-3xl space-y-10">
         <Header
           name={name}
           role={role}

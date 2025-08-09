@@ -1,6 +1,12 @@
+"use client";
+import { motion } from "framer-motion";
+
 export default function ExperienceItem({ company, role, start, end, location, bullets = [], stack = [] }) {
   return (
-    <div className="border-b border-foreground/10 pb-4 last:border-none">
+    <motion.div
+      variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}
+      className="border-b border-foreground/10 pb-4 last:border-none"
+    >
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div className="font-medium">{role}{company ? ` · ${company}` : ""}</div>
         <div className="text-xs text-foreground/70">{[start, end].filter(Boolean).join(" — ")}</div>
@@ -22,7 +28,7 @@ export default function ExperienceItem({ company, role, start, end, location, bu
           ))}
         </div>
       ) : null}
-    </div>
+    </motion.div>
   );
 }
 
