@@ -25,23 +25,25 @@ export default function Home() {
             contacts={contacts}
           />
         </div>
-        {projects?.length ? (
-          <Section id="projects" title="Featured Projects">
-            <div className="glassy-grid">
-              {projects.map((p, idx) => (
-                <div key={idx}>
-                  <ProjectCard {...p} />
-                </div>
-              ))}
-            </div>
+        {skills?.length ? (
+          <Section title="Skills">
+            <Skills skills={skills} />
           </Section>
         ) : null}
 
         <div className="separator" />
 
-        {skills?.length ? (
-          <Section title="Skills">
-            <Skills skills={skills} />
+        {projects?.length ? (
+          <Section id="projects" title="Featured Projects">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch" role="list">
+              {projects.map((p, idx) => (
+                <li key={p?.name || idx} className="list-none h-full">
+                  <div className="h-full">
+                    <ProjectCard {...p} />
+                  </div>
+                </li>
+              ))}
+            </ul>
           </Section>
         ) : null}
 

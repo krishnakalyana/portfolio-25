@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono, Rubik_Mono_One } from "next/font/google";
+import { Geist, Geist_Mono, Megrim } from "next/font/google";
 import "./globals.css";
 import portfolio from "@/data/portfolio";
 
@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const displayFont = Rubik_Mono_One({
+const displayFont = Megrim({
   variable: "--font-display",
   weight: "400",
   subsets: ["latin"],

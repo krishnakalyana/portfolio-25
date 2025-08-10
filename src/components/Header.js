@@ -24,7 +24,7 @@ export default function Header({ name, role, summary, avatarUrl, resumeUrl, cont
           />
         ) : null}
         <div>
-          <h1 className="text-5xl sm:text-6xl font-semibold tracking-[0.08em] uppercase name-shine font-display">
+          <h1 className="text-5xl sm:text-6xl font-semibold tracking-[0.08em] capitalize name-shine font-display display-gradient display-glow display-stroke">
             {name}
           </h1>
           {role ? <p className="text-sm text-foreground/70 mt-1 neon-role">{role}</p> : null}
