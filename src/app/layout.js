@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono, Megrim } from "next/font/google";
 import "./globals.css";
 import portfolio from "@/data/portfolio";
+import CyberFX from "@/components/CyberFX";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,6 +30,7 @@ export default function RootLayout({ children }) {
       <body className={`${geistSans.variable} ${geistMono.variable} ${displayFont.variable} antialiased`}
       >
         <div id="crt-overlay" />
+        <CyberFX />
         {children}
       </body>
     </html>

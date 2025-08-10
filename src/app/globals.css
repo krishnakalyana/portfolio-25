@@ -60,6 +60,23 @@ body {
   filter: saturate(1.2) contrast(1.05);
 }
 
+/* CRT overlay scanlines + vignette */
+#crt-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,0.03) 0px,
+      rgba(255,255,255,0.03) 1px,
+      transparent 1px,
+      transparent 3px
+    ),
+    radial-gradient(ellipse at 50% 50%, transparent 60%, rgba(0,0,0,0.4) 100%);
+  mix-blend-mode: overlay;
+}
+
 /* Card hover utilities */
 .card-neo {
   background: linear-gradient(180deg, rgba(8,8,16,0.7), rgba(8,8,16,0.5));
@@ -283,6 +300,29 @@ body {
   color: transparent;
   animation: gradientShift 8s ease-in-out infinite;
 }
+
+/* Floating cyber glyphs */
+.cyberfx { z-index: 5; }
+.cyber-glyph {
+  position: absolute;
+  font-family: var(--font-display), var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 14px;
+  color: rgba(var(--accent1), 0.5);
+  text-shadow: 0 0 10px rgba(var(--accent1), 0.5), 0 0 20px rgba(var(--accent2), 0.35);
+  animation-name: floatGlyph;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+@keyframes floatGlyph {
+  0% { transform: translateY(0) scale(var(--scale, 1)); opacity: 0.7; }
+  50% { transform: translateY(-10px) scale(var(--scale, 1)); opacity: 1; }
+  100% { transform: translateY(0) scale(var(--scale, 1)); opacity: 0.7; }
+}
+
+/* HUD corners */
+.hud-corner { position: absolute; width: 32px; height: 32px; border: 1px solid rgba(var(--accent1), 0.35); box-shadow: 0 0 8px rgba(var(--accent1),0.4); }
+.hud-corner.tl { top: 12px; left: 12px; border-right: none; border-bottom: none; }
+.hud-corner.br { bottom: 12px; right: 12px; border-left: none; border-top: none; }
 .display-glow {
   text-shadow: 0 0 10px rgba(var(--accent1), 0.25), 0 0 22px rgba(var(--accent2), 0.2);
 }
