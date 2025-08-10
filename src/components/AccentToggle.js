@@ -42,24 +42,21 @@ export default function AccentToggle() {
   }
 
   return (
-    <div className="flex items-center gap-1.5 text-xs">
+    <div className="flex items-center gap-1.5">
       {Object.entries(PALETTES).map(([k, p]) => (
         <button
           key={k}
           onClick={() => onSelect(k)}
           aria-label={`Accent ${p.name}`}
-          className={`h-7 px-2 rounded-md border transition-colors ${
+          title={p.name}
+          className={`w-8 h-8 rounded-md border transition-transform hover:scale-105 ${
             key === k ? "border-foreground/40" : "border-foreground/15 hover:border-foreground/30"
           }`}
           style={{
-            background:
-              key === k
-                ? `linear-gradient(90deg, rgba(${p.accents[0]},0.35), rgba(${p.accents[1]},0.35))`
-                : `linear-gradient(90deg, rgba(${p.accents[0]},0.2), rgba(${p.accents[1]},0.2))`,
+            background: `linear-gradient(135deg, rgba(${p.accents[0]},0.6), rgba(${p.accents[1]},0.6))`,
+            boxShadow: key === k ? `0 0 10px rgba(${p.accents[0]},0.35)` : undefined,
           }}
-        >
-          {p.name}
-        </button>
+        />
       ))}
     </div>
   );

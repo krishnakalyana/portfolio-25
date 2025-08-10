@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Rubik_Mono_One } from "next/font/google";
 import "./globals.css";
 import portfolio from "@/data/portfolio";
 
@@ -12,6 +12,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const displayFont = Rubik_Mono_One({
+  variable: "--font-display",
+  weight: "400",
+  subsets: ["latin"],
+});
+
 export const metadata = {
   title: portfolio?.name ? `${portfolio.name} · Portfolio` : "Portfolio",
   description: "Minimal, config-driven portfolio built with Next.js + Tailwind",
@@ -20,7 +26,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      <body className={`${geistSans.variable} ${geistMono.variable} ${displayFont.variable} antialiased`}
       >
         <div id="crt-overlay" />
         {children}

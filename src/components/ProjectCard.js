@@ -2,7 +2,7 @@
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { useRef } from "react";
 
-export default function ProjectCard({ name, description, link, repo, highlights = [], stack = [] }) {
+export default function ProjectCard({ name, description, link, repo, highlights = [], stack = [], cover }) {
   const ref = useRef(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -29,11 +29,26 @@ export default function ProjectCard({ name, description, link, repo, highlights 
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
       style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-      whileHover={{ scale: 1.015 }}
+      whileHover={{ scale: 1.01 }}
       transition={{ type: "spring", stiffness: 250, damping: 18 }}
-      className="card-neo rounded-lg p-4"
+      className="card-neo rounded-xl overflow-hidden"
     >
-      <div className="flex items-center justify-between gap-2" style={{ transform: "translateZ(24px)" }}>
+      {cover ? (
+        <div className="h-28 sm:h-32 w-full" style={{ transform: "translateZ(28px)" }}>
+          <div
+            className="h-full w-full"
+            style={{
+              background:
+                typeof cover === "string"
+                  ? `url(${cover}) center/cover no-repeat`
+                  : `linear-gradient(135deg, rgba(var(--accent1),0.25), rgba(var(--accent2),0.25))`,
+              filter: "saturate(1.2)",
+            }}
+          />
+        </div>
+      ) : null}
+
+      <div className="p-4 flex items-center justify-between gap-2" style={{ transform: "translateZ(24px)" }}>
         <h3 className="font-medium">{name}</h3>
         <div className="flex items-center gap-2 text-sm">
           {link ? (
@@ -48,16 +63,16 @@ export default function ProjectCard({ name, description, link, repo, highlights 
           ) : null}
         </div>
       </div>
-      {description ? <p className="text-sm text-foreground/80 mt-1" style={{ transform: "translateZ(18px)" }}>{description}</p> : null}
+      {description ? <p className="text-sm text-foreground/80 px-4" style={{ transform: "translateZ(18px)" }}>{description}</p> : null}
       {highlights?.length ? (
-        <ul className="list-disc list-inside mt-2 text-sm space-y-1" style={{ transform: "translateZ(14px)" }}>
+        <ul className="list-disc list-inside mt-2 text-sm space-y-1 px-4" style={{ transform: "translateZ(14px)" }}>
           {highlights.map((h, i) => (
             <li key={i}>{h}</li>
           ))}
         </ul>
       ) : null}
       {stack?.length ? (
-        <div className="mt-3 flex flex-wrap gap-1" style={{ transform: "translateZ(12px)" }}>
+        <div className="mt-3 flex flex-wrap gap-1 px-4 pb-4" style={{ transform: "translateZ(12px)" }}>
           {stack.map((t, i) => (
             <span key={i} className="text-xs px-2 py-0.5 rounded-full bg-foreground/5 border border-foreground/10">
               {t}

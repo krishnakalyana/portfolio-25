@@ -9,6 +9,9 @@ export const portfolio = {
   summary:
     "Skilled professional with four years of hands‑on experience in JavaScript, ReactJS, HTML, CSS, Material UI, and Next.js. Delivered multiple industry‑level projects, crafting robust, user‑centric solutions and translating design concepts into functional, responsive interfaces.",
 
+  // Which project to feature in the hero (by name). If not set, the first project is used.
+  featuredProject: "Propel Widget",
+
   // Public assets
   avatarUrl: "", // e.g. "/avatar.jpg" placed in public/
   resumeUrl: "/resume.pdf", // file is already copied to public
@@ -119,6 +122,8 @@ export const portfolio = {
       name: "Propel Widget",
       description:
         "Customer engagement widget for websites with personalized messaging, intelligent chatbots, real‑time support, and seamless integration.",
+      // Set featured: true to force this one in the hero (optional)
+      // featured: true,
       link: "",
       repo: "",
       highlights: [

@@ -7,7 +7,7 @@ import AccentToggle from "@/components/AccentToggle";
 export default function Header({ name, role, summary, avatarUrl, resumeUrl, contacts = {} }) {
   const hasContacts = Object.values(contacts).some(Boolean);
   return (
-    <header className="w-full max-w-3xl mx-auto flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+    <header className="w-full max-w-3xl mx-auto hero rounded-xl p-5 sm:p-6 flex flex-col gap-6">
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -24,8 +24,8 @@ export default function Header({ name, role, summary, avatarUrl, resumeUrl, cont
           />
         ) : null}
         <div>
-          <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight">
-            <GlitchText text={name} />
+          <h1 className="text-5xl sm:text-6xl font-semibold tracking-[0.08em] uppercase name-shine font-display">
+            {name}
           </h1>
           {role ? <p className="text-sm text-foreground/70 mt-1 neon-role">{role}</p> : null}
         </div>
@@ -42,7 +42,7 @@ export default function Header({ name, role, summary, avatarUrl, resumeUrl, cont
             href={resumeUrl}
             target="_blank"
             rel="noreferrer noopener"
-            className="text-sm px-3 py-1.5 rounded-md border border-foreground/15 hover:bg-foreground/5"
+            className="text-sm px-3 py-1.5 rounded-md btn-gradient"
           >
             View Resume
           </a>
@@ -55,7 +55,7 @@ export default function Header({ name, role, summary, avatarUrl, resumeUrl, cont
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className="text-sm text-foreground/80 sm:col-span-2"
+          className="text-sm text-foreground/80"
         >
           {summary}
         </motion.p>
@@ -65,7 +65,7 @@ export default function Header({ name, role, summary, avatarUrl, resumeUrl, cont
           initial="hidden"
           animate="show"
           variants={{ hidden: {}, show: { transition: { staggerChildren: 0.05 } } }}
-          className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-foreground/80"
+          className="dot-sep flex flex-wrap gap-x-3 gap-y-1 text-sm text-foreground/80"
         >
           {contacts.email ? (
             <motion.li variants={{ hidden: { opacity: 0, y: 6 }, show: { opacity: 1, y: 0 } }}>
