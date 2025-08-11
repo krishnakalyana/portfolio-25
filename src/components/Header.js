@@ -9,38 +9,23 @@ export default function Header({ name, role, summary, avatarUrl, resumeUrl, cont
   return (
     <>
       {/* Full-width name banner */}
-      <div className="w-full px-4 sm:px-8 py-6">
-        <div className="mx-auto max-w-6xl">
+      <div className="w-full py-6">
+        <div className="mx-auto max-w-5xl">
           <h1 className="text-5xl sm:text-6xl font-semibold tracking-[0.08em] capitalize name-shine font-display display-gradient display-glow display-stroke">
             {name}
           </h1>
         </div>
       </div>
 
-      {summary ? (
-        <div className="w-full px-4 sm:px-8 pb-4">
-          <div className="mx-auto max-w-6xl">
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.05 }}
-              className="text-base sm:text-lg text-foreground/85"
-            >
-              {summary}
-            </motion.p>
-          </div>
-        </div>
-      ) : null}
-
       {/* Role line */}
       {role ? (
-        <div className="w-full px-4 sm:px-8 pb-2">
-          <div className="mx-auto max-w-6xl">
+        <div className="w-full pb-2">
+          <div className="mx-auto max-w-5xl">
             <motion.p
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45 }}
-              className="text-sm text-foreground/70 neon-role"
+              className="text-base sm:text-[17px] font-medium text-foreground/90 tracking-wide neon-role"
             >
               {role}
             </motion.p>
@@ -48,9 +33,24 @@ export default function Header({ name, role, summary, avatarUrl, resumeUrl, cont
         </div>
       ) : null}
 
+      {summary ? (
+        <div className="w-full pb-4">
+          <div className="mx-auto max-w-5xl">
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.05 }}
+              className="text-[15px] sm:text-[17px] leading-relaxed text-foreground/85 max-w-[75ch]"
+            >
+              {summary}
+            </motion.p>
+          </div>
+        </div>
+      ) : null}
+
       {/* CTAs / Accent */}
-      <div className="w-full px-4 sm:px-8 pb-3">
-        <div className="mx-auto max-w-6xl flex items-center gap-3">
+      <div className="w-full pb-3">
+        <div className="mx-auto max-w-5xl flex items-center gap-3">
           {resumeUrl ? (
             <a
               href={resumeUrl}
@@ -67,8 +67,8 @@ export default function Header({ name, role, summary, avatarUrl, resumeUrl, cont
 
       {/* Contacts */}
       {hasContacts ? (
-        <div className="w-full px-4 sm:px-8 pb-6">
-          <div className="mx-auto max-w-6xl">
+        <div className="w-full pb-6">
+          <div className="mx-auto max-w-5xl">
             <motion.ul
               initial="hidden"
               animate="show"

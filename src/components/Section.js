@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function Section({ id, title, children, className = "" }) {
   return (
-    <section id={id} className={`w-full max-w-3xl mx-auto ${className}`}>
+    <section id={id} className={`w-full max-w-5xl mx-auto ${className}`}>
       {title ? (
         <motion.h2
           initial={{ opacity: 0, y: 8 }}
